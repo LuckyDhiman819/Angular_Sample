@@ -1,0 +1,7 @@
+<p>weather works!--parent {{childData}}</p>
+
+<h3>Entre The weather <input type="text" #temp (keyup) = "0"></h3>
+
+<hr>
+<app-city [temprature] = "temp.value" (cityEvent)= "childData=$event"></app-city>
+<hr>

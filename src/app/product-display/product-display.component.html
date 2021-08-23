@@ -1,0 +1,7 @@
+<h1>Product Display</h1>
+
+<ul *ngFor = "let pro of product" colorRed>
+        <li>   
+            {{pro.productName}}--> {{pro.productId}} --> {{pro.quantityOnHand}} --> {{pro.price}} --> {{pro.review}}
+        </li>
+</ul>

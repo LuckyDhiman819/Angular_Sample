@@ -1,0 +1,58 @@
+<h1>Employee Details</h1>
+<h1 colorRed> {{errorMsg}}</h1>
+<ul *ngFor="let employee of employee" colorRed>
+    <li>
+        {{employee.id}}--> {{employee.first_name}} --> {{employee.last_name}} --> {{employee.email}}
+    </li>
+</ul>
+<div>
+    <form [formGroup]="employeeForm" (ngSubmit)="onSubmit()">
+        <div>
+          <label>
+            Employee Id: </label>
+            <input  class="form-control" type="number" formControlName="id" placeholder="Your Employee Id">
+            <div class="alert alert-danger" role="alert" *ngIf="employeeForm.get('id').hasError('required') && ( employeeForm.get('id').dirty || employeeForm.get('id').touched)">
+              Please provide a name.
+            </div>
+            <div class="alert alert-danger" role="alert" *ngIf = "cheakExists()">
+                id is already Exists!!!!!...
+            </div>
+        </div>
+        <div>
+          <label>
+            First-Name: </label>
+            <input  class="form-control" type="text" formControlName="first_name" placeholder="Your First Name">
+            <div class="alert alert-danger" role="alert" *ngIf="employeeForm.get('first_name').hasError('required') && ( employeeForm.get('first_name').dirty || employeeForm.get('first_name').touched)">
+              Please provide a name.
+            </div>
+            <div class="alert alert-danger" role="alert" *ngIf="employeeForm.get('first_name').hasError('minlength') && (employeeForm.get('first_name').dirty || employeeForm.get('first_name').touched)">
+              Please entre Minimum 5 charecter !!!!! {{(employeeForm.get('first_name').value.length)-5}} left!!!!
+            </div>
+         
+        </div>
+        <div>
+          <label>
+            Last-Name:</label>
+            <input  class="form-control" type="text" formControlName="last_name" placeholder="Your Last Name">
+            <div class="alert alert-danger" role="alert" *ngIf="employeeForm.get('last_name').hasError('required') && ( employeeForm.get('last_name').dirty || employeeForm.get('last_name').touched)">
+              Please provide a Last Name.
+            </div>
+            <div class="alert alert-danger" role="alert" *ngIf="employeeForm.get('last_name').hasError('minlength') && (employeeForm.get('last_name').dirty || employeeForm.get('last_name').touched)">
+              Please entre Minimum 5 charecter !!!!! {{(employeeForm.get('last_name').value.length)-5}} left!!!!
+            </div>
+        </div>
+        <div>
+          <label>
+            Email: </label>
+            <input  class="form-control" type="email" formControlName="email" placeholder="Your Email">
+            <div class="alert alert-danger" role="alert" *ngIf="employeeForm.get('email').hasError('required') && ( employeeForm.get('email').dirty || employeeForm.get('email').touched)">
+              Please provide a email.
+            </div>
+            <div class="alert alert-danger" role="alert" *ngIf="employeeForm.get('email').hasError('email') && ( employeeForm.get('email').dirty || employeeForm.get('email').touched)">
+              Please provide proper mail
+            </div>
+        </div>
+        
+        <button type="submit" class = "btn btn-primary">Add Employee</button>
+      </form>
+</div>

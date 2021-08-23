@@ -1,0 +1,34 @@
+<h1>Product Form</h1>
+
+<table>
+    <tr>
+        <td>Product Id:- </td>
+        <td><input type="number" name="id" id="id"  [(ngModel)] = "id" > </td>
+    </tr>
+    <tr>
+        <td>Product Name:- </td>
+        <td><input type="text" name="name" id="name" [(ngModel)] = "ProductName"> </td>
+    </tr>
+    <tr>
+        <td>Quantity On Hand:- </td>
+        <td><input type="number" name="QOH" id="QOH" [(ngModel)] = "quantityOnHnads"> </td>
+    </tr>
+    <tr>
+        <td>Price:- </td>
+        <td><input type="number" name="price" id="price" [(ngModel)] = "price"> </td>
+    </tr>
+    <tr>
+        <td>Comments:- </td>
+        <td><input type="text" name="Comments" id="Comments" [(ngModel)] = "comments"> </td>
+    </tr>
+</table>
+<div *ngIf = "display" >
+
+    <h3>Product details entered by you is: Product Id : {{id}} </h3>
+    <h3>Product details entered by you is: Product Name : {{ProductName}} </h3>
+    <h3>Product details entered by you is: Product Quantity On Hand : {{quantityOnHnads}} </h3>
+    <h3>Product details entered by you is: Product Price : {{price}} </h3>
+    <h3>Product details entered by you is: Product Comments : {{comments}} </h3>
+    
+</div>
+    <button (click) = "show()">{{lable}}</button>
